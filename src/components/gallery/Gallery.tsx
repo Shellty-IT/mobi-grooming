@@ -72,9 +72,11 @@ export default function Gallery() {
   const checkForScroll = useCallback(() => {
     const el = scrollContainerRef.current;
     if (el) {
-      const buffer = 1;
-      setCanScrollLeft(el.scrollLeft > buffer);
-      setCanScrollRight(el.scrollLeft < el.scrollWidth - el.clientWidth - buffer);
+      const buffer = 5;
+      const canScrollL = el.scrollLeft > buffer;
+      const canScrollR = el.scrollWidth > el.clientWidth + el.scrollLeft + buffer;
+      setCanScrollLeft(canScrollL);
+      setCanScrollRight(canScrollR);
     }
   }, []);
 
@@ -83,17 +85,26 @@ export default function Gallery() {
     if (el) {
       const scrollAmount = el.clientWidth * 0.8;
       el.scrollBy({ left: direction === "left" ? -scrollAmount : scrollAmount, behavior: "smooth" });
+      // Wymuś sprawdzenie po animacji
+      setTimeout(checkForScroll, 500);
     }
-  }, []);
+  }, [checkForScroll]);
 
   useEffect(() => {
     const el = scrollContainerRef.current;
     if (!el) return;
+
+    // Sprawdzaj regularnie na początku, bo obrazy mogą się ładować
+    const checkInterval = setInterval(checkForScroll, 1000);
+
     checkForScroll();
     el.addEventListener("scroll", checkForScroll);
     window.addEventListener("resize", checkForScroll);
+    
     const timeoutId = setTimeout(checkForScroll, 100);
+    
     return () => {
+      clearInterval(checkInterval);
       el.removeEventListener("scroll", checkForScroll);
       window.removeEventListener("resize", checkForScroll);
       clearTimeout(timeoutId);
@@ -103,17 +114,17 @@ export default function Gallery() {
     return (
         <>
             <style>{HIDE_SCROLLBAR_STYLE}</style>
-            <section id="galeria" className="py-20 bg-white">
+            <section id="galeria" className="py-20 bg-white overflow-hidden">
                 <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
                     <div className="text-center">
                         <h2 className="text-4xl md:text-5xl font-bold text-gray-900 mb-4">Galeria</h2>
                         <p className="text-xl text-gray-600 mb-12">Zobacz efekty naszej pracy</p>
 
-                        <div className="relative">
+                        <div className="relative px-4">
                             {canScrollLeft && (
                                 <button
                                     onClick={() => handleScroll("left")}
-                                    className="absolute top-1/2 left-0 -translate-x-1/2 -translate-y-1/2 z-10 w-12 h-12 rounded-full bg-gradient-to-br from-pink-500 to-purple-600 flex items-center justify-center shadow-lg transition-transform hover:scale-110 focus:outline-none focus:ring-2 focus:ring-purple-500 focus:ring-offset-2"
+                                    className="absolute top-1/2 left-0 -translate-y-1/2 z-20 w-12 h-12 rounded-full bg-gradient-to-br from-pink-500 to-purple-600 flex items-center justify-center shadow-xl transition-transform hover:scale-110 focus:outline-none focus:ring-2 focus:ring-purple-500 focus:ring-offset-2"
                                     aria-label="Przewiń w lewo"
                                 >
                                     <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round" className="text-white"><path d="m15 18-6-6 6-6"/></svg>
@@ -133,8 +144,9 @@ export default function Gallery() {
                                                 <img
                                                     src={src}
                                                     alt={`Zdjęcie ${i + 1}`}
-                                                    loading="lazy"
+                                                    loading="eager"
                                                     draggable={false}
+                                                    onLoad={checkForScroll}
                                                     className="h-80 w-auto object-contain select-none"
                                                 />
                                             </button>
@@ -150,7 +162,7 @@ export default function Gallery() {
                             {canScrollRight && (
                                 <button
                                     onClick={() => handleScroll("right")}
-                                    className="absolute top-1/2 right-0 translate-x-1/2 -translate-y-1/2 z-10 w-12 h-12 rounded-full bg-gradient-to-br from-pink-500 to-purple-600 flex items-center justify-center shadow-lg transition-transform hover:scale-110 focus:outline-none focus:ring-2 focus:ring-purple-500 focus:ring-offset-2"
+                                    className="absolute top-1/2 right-0 -translate-y-1/2 z-20 w-12 h-12 rounded-full bg-gradient-to-br from-pink-500 to-purple-600 flex items-center justify-center shadow-xl transition-transform hover:scale-110 focus:outline-none focus:ring-2 focus:ring-purple-500 focus:ring-offset-2"
                                     aria-label="Przewiń w prawo"
                                 >
                                     <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round" className="text-white"><path d="m9 18 6-6-6-6"/></svg>
