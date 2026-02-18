@@ -45,11 +45,9 @@ export default function Dashboard({ announcements }: { announcements: Array<{ sl
 
     return (
         <div className="min-h-screen bg-gradient-to-b from-pink-50 via-white to-blue-50">
-            {/* Navigation - FIXED TOP */}
             <nav className="bg-white shadow-lg fixed top-0 left-0 right-0 z-50 border-b-4 border-pink-200">
                 <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
                     <div className="flex justify-between items-center h-24">
-                        {/* Logo */}
                         <div className="flex items-center space-x-4">
                             <img
                                 src="https://github.com/Crusty-IT/mobi-grooming/blob/main/public/pictures/logo.jpg?raw=true"
@@ -62,7 +60,6 @@ export default function Dashboard({ announcements }: { announcements: Array<{ sl
                             </div>
                         </div>
 
-                        {/* Desktop Menu - LARGER & MORE VISIBLE */}
                         <div className="hidden lg:flex items-center space-x-2">
                             <a href="#onas" className="px-6 py-3 text-gray-700 hover:bg-pink-50 hover:text-pink-600 transition font-semibold rounded-lg text-lg">
                                 O Nas
@@ -94,7 +91,7 @@ export default function Dashboard({ announcements }: { announcements: Array<{ sl
                             </a>
                         </div>
 
-                        {/* Mobile Menu Button */}
+
                         <button
                             onClick={() => setMobileMenuOpen(!mobileMenuOpen)}
                             className="lg:hidden p-3 rounded-lg bg-pink-100 hover:bg-pink-200 transition"
@@ -103,7 +100,6 @@ export default function Dashboard({ announcements }: { announcements: Array<{ sl
                         </button>
                     </div>
 
-                    {/* Mobile Menu */}
                     {mobileMenuOpen && (
                         <div className="lg:hidden py-6 space-y-2 border-t-2 border-pink-100 bg-white">
                             <a href="#onas" className="block py-3 px-4 text-gray-700 hover:bg-pink-50 hover:text-pink-600 transition font-semibold rounded-lg">
@@ -139,10 +135,8 @@ export default function Dashboard({ announcements }: { announcements: Array<{ sl
                 </div>
             </nav>
 
-            {/* Spacer for fixed nav */}
             <div className="h-24"></div>
 
-            {/* Hero Section */}
             <section id="onas" className="relative overflow-hidden pt-12">
                 <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-20 md:py-32">
                     <div className="grid md:grid-cols-2 gap-12 items-center">
@@ -309,7 +303,7 @@ export default function Dashboard({ announcements }: { announcements: Array<{ sl
                     </div>
 
                     <div className="grid md:grid-cols-2 gap-12">
-                        {/* Informacje kontaktowe - bez zmian */}
+
                         <div className="space-y-6">
                             <div className="bg-white p-6 rounded-2xl shadow-md flex items-start space-x-4">
                                 <div className="w-12 h-12 bg-pink-100 rounded-full flex items-center justify-center flex-shrink-0">
