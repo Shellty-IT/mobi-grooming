@@ -400,7 +400,7 @@ export default function Dashboard({ announcements }: { announcements: Array<{ sl
                                     <div className="relative h-4 w-24">
 
                                         <img
-                                            src="https://raw.githubusercontent.com/shellty-IT/KSeF-Master/main/public/ico.svg"
+                                            src="https://shellty-it.github.io/favicon-32x32.png"
                                             alt="Crusty IT Logo"
                                             className="absolute top-1/2 left-0 -translate-y-1/2 h-15 w-auto"
                                         />
