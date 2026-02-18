@@ -188,7 +188,7 @@ export default function Dashboard({ announcements }: { announcements: Array<{ sl
 
                     </div>
 
-                    <div className="grid grid-cols-3 gap-4 mt-20 pt-12 border-t border-gray-200"> {/* Zmniejszony odstęp (gap) */}
+                    <div className="grid grid-cols-3 gap-4 mt-20 pt-12 border-t border-gray-200">
                         {stats.map((stat, index) => (
                             <div key={index} className="text-center">
                                 {/* Zmniejszony rozmiar czcionki na mobile */}
@@ -388,7 +388,7 @@ export default function Dashboard({ announcements }: { announcements: Array<{ sl
 
                             <div className="flex justify-center md:justify-start">
                                 <a
-                                    href="https://crusty-it.github.io/"
+                                    href="https://shellty-it.github.io/"
                                     target="_blank"
                                     rel="noopener noreferrer"
                                     className="flex items-center gap-3 text-gray-400 hover:text-gray-200 transition-colors"
@@ -400,7 +400,7 @@ export default function Dashboard({ announcements }: { announcements: Array<{ sl
                                     <div className="relative h-4 w-24">
 
                                         <img
-                                            src="https://raw.githubusercontent.com/shellupski/Moja-strona/main/images/logo_horizontaly.svg"
+                                            src="https://raw.githubusercontent.com/shellty-IT/KSeF-Master/main/public/ico.svg"
                                             alt="Crusty IT Logo"
                                             className="absolute top-1/2 left-0 -translate-y-1/2 h-15 w-auto"
                                         />
