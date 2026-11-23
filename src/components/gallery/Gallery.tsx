@@ -7,12 +7,12 @@ const HIDE_SCROLLBAR_STYLE = `
 `;
 
 const GALLERY_IMAGES = [
-  "https://github.com/Crusty-IT/mobi-grooming/blob/main/public/pictures/gallery/1.jpg?raw=true",
-  "https://github.com/Crusty-IT/mobi-grooming/blob/main/public/pictures/gallery/2.jpg?raw=true",
-  "https://github.com/Crusty-IT/mobi-grooming/blob/main/public/pictures/gallery/3.jpg?raw=true",
-  "https://github.com/Crusty-IT/mobi-grooming/blob/main/public/pictures/gallery/4.jpg?raw=true",
-  "https://github.com/Crusty-IT/mobi-grooming/blob/main/public/pictures/gallery/5.jpg?raw=true",
-  "https://github.com/Crusty-IT/mobi-grooming/blob/main/public/pictures/gallery/6.jpg?raw=true"
+  "/pictures/gallery/1.jpg",
+  "/pictures/gallery/2.jpg",
+  "/pictures/gallery/3.jpg",
+  "/pictures/gallery/4.jpg",
+  "/pictures/gallery/5.jpg",
+  "/pictures/gallery/6.jpg"
 ];
 
 export default function Gallery() {

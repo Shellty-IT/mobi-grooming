@@ -7,12 +7,12 @@ const HIDE_SCROLLBAR_STYLE = `
 `;
 
 const CERT_IMAGES = [
-  "https://raw.githubusercontent.com/Crusty-IT/mobi-grooming/main/public/pictures/certs/1.png",
-  "https://raw.githubusercontent.com/Crusty-IT/mobi-grooming/main/public/pictures/certs/2.png",
-  "https://raw.githubusercontent.com/Crusty-IT/mobi-grooming/main/public/pictures/certs/3.png",
-  "https://raw.githubusercontent.com/Crusty-IT/mobi-grooming/main/public/pictures/certs/4.png",
-  "https://raw.githubusercontent.com/Crusty-IT/mobi-grooming/main/public/pictures/certs/5.png",
-  "https://raw.githubusercontent.com/Crusty-IT/mobi-grooming/main/public/pictures/certs/6.png",
+  "/pictures/certs/1.png",
+  "/pictures/certs/2.png",
+  "/pictures/certs/3.png",
+  "/pictures/certs/4.png",
+  "/pictures/certs/5.png",
+  "/pictures/certs/6.png",
 ];
 
 export default function CertificatesSection() {

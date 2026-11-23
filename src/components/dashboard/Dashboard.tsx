@@ -50,7 +50,7 @@ export default function Dashboard({ announcements }: { announcements: Array<{ sl
                     <div className="flex justify-between items-center h-24">
                         <div className="flex items-center space-x-4">
                             <img
-                                src="https://github.com/Crusty-IT/mobi-grooming/blob/main/public/pictures/logo.jpg?raw=true"
+                                src="/pictures/logo.jpg"
                                 alt="Mobi Logo"
                                 className="h-16 w-16 rounded-full object-cover shadow-lg border-2 border-pink-200"
                             />
